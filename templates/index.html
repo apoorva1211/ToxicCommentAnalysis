@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Toxic Comment Classification</title>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=PT+Sans'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        td{
+            padding: 15px;
+        }
+        body {
+        background-image: url('static/capstone_bg3.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h3 style="font-size:60px; color:white;">Toxic Comment Classification</h3>
+        <div class="container__item">
+            <form class="form" action="{{ url_for('predict') }}" method="POST">
+                <input type="text" name="comment" class="form__field" placeholder="Comment Here...!" />
+                <button type="submit" name="submit" value="Submit" class="btn btn--primary btn--inside uppercase">Predict</button>
+            </form>
+        </div>
+        
+        <table style="margin-top: 75px; width: 70%; box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1); background-color: #7f8ff4;">
+            <tr style="color: white;">
+                <td>Toxic</td>
+                <td>Severe Toxic</td>
+                <td>Obscene</td>
+                <td>Threat</td>
+                <td>Insult</td>
+                <td>Identity Hate</td>
+            </tr>
+            <tr style="background-color: #FFF;">
+                <td>{{ toxic }}</td>
+                <td>{{ severe_toxic }}</td>
+                <td>{{ obscene }}</td>
+                <td>{{ threat }}</td>
+                <td>{{ insult }}</td>
+                <td>{{ identity_hate }}</td>
+            </tr>
+	
+	<table style="margin-top: 75px; width: 70%; box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1); background-color: #7f8ff4;">
+	    <tr style="color: white;">
+		<td> Recommendation </td>
+	    </tr>
+	    <tr style="background-color: #FFF;">
+		<td>{{ Recommendation }}</td>
+	    </tr>
+            <!-- Shield icons -- Rrequires Internet Conection -->
+            <!--             
+                <tr>
+                    <td><img src="https://img.shields.io/static/v1?label=Toxic&message= {{toxic}}&color=lightblue&style=for-the-badge&?logoWidth=40"></td>
+                    <td><img src="https://img.shields.io/static/v1?label=Severe Toxic&message= {{severe_toxic}}&color=lightblue&style=for-the-badge"></td>
+                    <td><img src="https://img.shields.io/static/v1?label=Obscene&message= {{obscene}}&color=lightblue&style=for-the-badge"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://img.shields.io/static/v1?label=Threat&message= {{threat}}&color=lightblue&style=for-the-badge&?logoWidth=40"></td>
+                    <td><img src="https://img.shields.io/static/v1?label=Insult&message= {{insult}}&color=lightblue&style=for-the-badge"></td>
+                    <td><img src="https://img.shields.io/static/v1?label=Identity Hate&message= {{identity_hate}}&color=lightblue&style=for-the-badge"></td>
+                </tr>
+             -->
+        </table>
+    </div>
+</body>
+
+</html>
